@@ -8,7 +8,7 @@
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <!-- AR.js を読み込む -->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <title>ARだよ</title>
+    <title>任意のページタイトル</title>
   </head>
   <body style="margin: 0; overflow: hidden">
 	  
@@ -17,13 +17,13 @@
 	    
       <!-- 3DCGモデルを読み込む -->
       <a-assets>
-        <a-asset-item id="tiger" src="./asset/tiger.glb"></a-asset-item>
+        <a-asset-item id="caby" src="./asset/caby.glb"></a-asset-item>
       </a-assets>
 
       <!-- マーカーの.pattファイルを読み込む -->
-      <a-marker type="pattern" url="./asset/pattern-tiger.patt">
+      <a-marker type="pattern" url="./asset/pattern-caby.patt">
         <!-- 3Dモデルを呼び出す -->
-        <a-entity gltf-model="#tiger"></a-entity>
+        <a-entity gltf-model="#caby"  rotation="-90 0 0"></a-entity>
       </a-marker>
 
       <!-- カメラを追加 -->
