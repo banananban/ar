@@ -11,9 +11,12 @@
   <!-- aframe-extras読み込み -->
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
 
-  <title>AR Caby3</title>
+  <title>AR Caby7</title>
 </head>
+
+
 <body style="margin: 0; overflow: hidden">
+
   <!-- A-FrameにAR.jsを紐づけ、VRボタン非表示、深度バッファ追加 -->
   <a-scene embedded arjs vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;">
     <!-- 3DCGモデルを読み込む -->
@@ -33,5 +36,9 @@
     <!-- カメラを追加 -->
     <a-entity camera></a-entity>
   </a-scene>
+  <script>
+      //glTFの表示が暗くなる問題に対処
+      document.querySelector("a-scene").renderer.gammaOutput=true;
+  </script>
 </body>
 </html>
