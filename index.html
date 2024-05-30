@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- A-Frameを読み込む -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/aframe/1.2.0/aframe.min.js"></script>
-    <!-- AR.jsを読み込む -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/ar.js/2.2.2/aframe-ar.min.js"></script>
-    <!-- aframe-extras読み込み -->
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <!-- glbのアニメーションを動かす機能「animation-mixer」を働かせるためにaframe-extras読み込みをする -->
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- A-Frameを読み込む -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <!-- AR.jsを読み込む -->
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.js"></script>
+  <!-- aframe-extras読み込み -->
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
 
-    <title>AR Caby6</title>
-  </head>
-  <body style="margin: 0; overflow: hidden">
-    
-    <!-- A-FrameにAR.jsを紐づけ、VRボタン非表示、深度バッファ追加 -->
-    <a-scene embedded arjs vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;">
-      
-      <!-- 3DCGモデルを読み込む -->
-      <a-assets>
-        <a-asset-item id="model" src="./asset/caby.glb"></a-asset-item>
-      </a-assets>
+  <title>AR Caby3</title>
+</head>
+<body style="margin: 0; overflow: hidden">
+  <!-- A-FrameにAR.jsを紐づけ、VRボタン非表示、深度バッファ追加 -->
+  <a-scene embedded arjs vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;">
+    <!-- 3DCGモデルを読み込む -->
+    <a-assets>
+      <a-asset-item id="model" src="./asset/caby.glb"></a-asset-item>
+    </a-assets>
 
-      <!-- ライトの設定ここから -->
-      <a-light type="directional" color="#FFF" intensity="0.5" position="2 2 2"></a-light>
-      <a-light type="ambient" color="#FFF"></a-light>
-      <!-- ライトの設定ここまで -->
+    <!-- ライトの設定 -->
+    <a-light type="directional" color="#FFF" intensity="0.5" position="2 2 2"></a-light>
+    <a-light type="ambient" color="#FFF"></a-light>
 
-      <!-- マーカーの上に表示させるモデルの設定ここから -->
-      <a-marker preset="custom" type="pattern" url="./asset/pattern-caby.patt">
-        <a-entity gltf-model="#model" position="0 0 0" scale="0.2 0.2 0.2" rotation="-90 0 0" animation-mixer>
-          <a-animation attribute="rotation" to="0 0 0" dur="7000" repeat="indefinite" easing="linear"></a-animation>
-        </a-entity>
-      </a-marker>
-      <!-- マーカーの上に表示させるモデルの設定ここまで -->
+    <!-- マーカーの上に表示させるモデルの設定 -->
+    <a-marker preset="custom" type="pattern" url="./asset/pattern-caby.patt">
+      <a-entity gltf-model="#model" position="0 0 0" scale="0.5 0.5 0.5" rotation="0 0 0" animation-mixer></a-entity>
+    </a-marker>
 
-      <!-- カメラを追加 -->
-      <a-entity camera></a-entity>
-    </a-scene>
-  </body>
+    <!-- カメラを追加 -->
+    <a-entity camera></a-entity>
+  </a-scene>
+</body>
 </html>
