@@ -11,7 +11,7 @@
   <!-- aframe-extras読み込み -->
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
 
-  <title>AR Caby8</title>
+  <title>AR Caby7</title>
 </head>
 
 <body style="margin: 0; overflow: hidden">
@@ -27,20 +27,11 @@
     <a-light type="directional" color="#FFF" intensity="0.5" position="2 2 2"></a-light>
     <a-light type="ambient" color="#FFF"></a-light>
 
-    <!-- マーカーの上に表示させるモデルの設定 -->
-    <a-marker preset="custom" type="pattern" url="./asset/pattern-caby.patt">
-      <a-entity 
-        gltf-model="#model" 
-        position="0 0 0" 
-        scale="0.5 0.5 0.5" 
-        rotation="-90 0 0" 
-        animation-mixer="clip: *"
-        animation__position="property: position; from: 0 0.5 -3; to: 0 0.8 -3; dir: alternate; dur: 1800; easing: easeInOutQuad; loop: true">
-      </a-entity>
-    </a-marker>
+    <!-- シーン内にモデルを直接配置 -->
+    <a-entity gltf-model="#model" position="0 0 -5" scale="0.5 0.5 0.5" rotation="-90 0 0" animation-mixer="clip: *"></a-entity>
 
     <!-- カメラを追加 -->
-    <a-entity camera></a-entity>
+    <a-entity camera position="0 1.6 0"></a-entity>
   </a-scene>
 </body>
 </html>
