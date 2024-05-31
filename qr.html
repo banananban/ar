@@ -21,6 +21,7 @@
     <!-- 3DCGモデルを読み込む -->
     <a-assets>
       <a-asset-item id="model" src="./asset/caby.glb"></a-asset-item>
+      <a-asset-item id="model_mt2" src="./asset/caby_mt2.glb"></a-asset-item>
     </a-assets>
 
     <!-- ライトの設定 -->
@@ -30,6 +31,7 @@
     <!-- マーカーの上に表示させるモデルの設定 -->
     <a-marker preset="custom" type="pattern" url="./asset/pattern-caby.patt">
       <a-entity gltf-model="#model" position="0 0 0" scale="0.5 0.5 0.5" rotation="-90 0 0" animation-mixer="clip: *"></a-entity>
+      <a-entity gltf-model="#model_mt2l" position="0 -1 0" scale="0.5 0.5 0.5" rotation="-90 0 0" animation-mixer="clip: *"></a-entity>
     </a-marker>
 
     <!-- カメラを追加 -->
