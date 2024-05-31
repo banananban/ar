@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- A-Frameを読み込む -->
+  <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  <!-- AR.jsを読み込む -->
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.js"></script>
+  <!-- aframe-extras読み込み -->
+  <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+
+  <title>AR Caby7</title>
+</head>
+
+<body style="margin: 0; overflow: hidden">
+
+  <!-- A-FrameにAR.jsを紐づけ、VRボタン非表示、深度バッファ追加 -->
+  <a-scene embedded arjs vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;">
+    <!-- 3DCGモデルを読み込む -->
+    <a-assets>
+      <a-asset-item id="model" src="./asset/caby.glb"></a-asset-item>
+    </a-assets>
+
+    <!-- ライトの設定 -->
+    <a-light type="directional" color="#FFF" intensity="0.5" position="1 1 0"></a-light>
+    <a-light type="ambient" color="#FFF"></a-light>
+
+    <!-- シーン内にモデルを直接配置 -->
+    <a-entity gltf-model="#model" position="0 0 -5" scale="0.5 0.5 0.5" rotation="0 0 0" animation-mixer="clip: *"></a-entity>
+  </a-scene>
+</body>
+</html>
