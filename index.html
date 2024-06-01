@@ -10,14 +10,19 @@
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.js"></script>
   <!-- aframe-extras読み込み -->
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
+  <!-- Location-based AR読み込み -->
+  <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+  <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-gps-camera/dist/aframe-gps-camera.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aframe-gps-entity-place/dist/aframe-gps-entity-place.min.js"></script>
 
-  <title>AR Caby Index</title>
+  <title>AR Caby7</title>
 </head>
 
 <body style="margin: 0; overflow: hidden">
 
   <!-- A-FrameにAR.jsを紐づけ、VRボタン非表示、深度バッファ追加 -->
-  <a-scene embedded arjs vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;">
+  <a-scene vr-mode-ui="enabled: false" embedded arjs="sourceType: webcam; debugUIEnabled: false;">
     <!-- 3DCGモデルを読み込む -->
     <a-assets>
       <a-asset-item id="model" src="./asset/caby.glb"></a-asset-item>
@@ -28,8 +33,12 @@
     <a-light type="ambient" color="#FFF"></a-light>
 
     <!-- シーン内にモデルを直接配置 -->
-    <a-entity gltf-model="#model" position="0 0 -5" scale="0.5 0.5 0.5" rotation="0 0 0" animation-mixer="clip: *"></a-entity>
+    <a-entity gltf-model="#model" scale="0.5 0.5 0.5" rotation="0 0 0" animation-mixer="clip: *"
+              gps-entity-place="latitude: 43.065112; longitude: 141.361493; altitude: 10;">
+    </a-entity>
 
+    <!-- gps-cameraで、カメラとGPSを紐付け -->
+    <a-camera gps-camera rotation-reader></a-camera>
   </a-scene>
 </body>
 </html>
