@@ -10,30 +10,18 @@
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.js"></script>
   <!-- aframe-extras読み込み -->
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
-
+        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <title>AR Caby Markerless</title>
 </head>
 
 <body style="margin: 0; overflow: hidden">
-
-  <!-- A-FrameにAR.jsを紐づけ、VRボタン非表示、深度バッファ追加 -->
-  <a-scene embedded arjs="sourceType: camera; trackingMethod: best;" vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;">
-    <!-- 3DCGモデルを読み込む -->
-    <a-assets>
-      <a-asset-item id="model" src="./asset/caby.glb"></a-asset-item>
-      <a-asset-item id="model_mt2" src="./asset/caby_mt2.glb"></a-asset-item>
-    </a-assets>
-
-    <!-- ライトの設定 -->
-    <a-light type="directional" color="#FFF" intensity="0.5" position="1 1 0"></a-light>
-    <a-light type="ambient" color="#FFF"></a-light>
-
-    <!-- カメラ設定 -->
-    <a-camera position="0 0 0" look-controls="enabled: true"></a-camera>
-
-    <!-- シーン内にモデルを直接配置 -->
-    <a-entity gltf-model="#model" position="0 0 0" scale="0.5 0.5 0.5" rotation="0 0 0" animation-mixer="clip: *"></a-entity>
-    <a-entity gltf-model="#model_mt2" position="0 -1 0" scale="0.3 0.3 0.3" rotation="0 0 0" animation-mixer="clip: *"></a-entity>
-  </a-scene>
+        <model-viewer
+          ar
+          ar-modes="scene-viewer webxr quick-look"
+          src="./asset/caby.glb"
+          alt="Cyawan"
+          auto-rotate
+          camera-controls
+        ></model-viewer>
 </body>
 </html>
