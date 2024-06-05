@@ -11,13 +11,13 @@
   <!-- aframe-extras読み込み -->
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
 
-  <title>AR Caby Markeress</title>
+  <title>AR Caby Markerless</title>
 </head>
 
 <body style="margin: 0; overflow: hidden">
 
   <!-- A-FrameにAR.jsを紐づけ、VRボタン非表示、深度バッファ追加 -->
-  <a-scene embedded arjs="trackingMethod: best; sourceType: webcam;" vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;">
+  <a-scene embedded arjs="sourceType: camera; trackingMethod: best;" vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;">
     <!-- 3DCGモデルを読み込む -->
     <a-assets>
       <a-asset-item id="model" src="./asset/caby.glb"></a-asset-item>
@@ -29,14 +29,11 @@
     <a-light type="ambient" color="#FFF"></a-light>
 
     <!-- カメラ設定 -->
-    <a-camera position="0 1.6 0" look-controls-enabled="true">
-      <a-entity cursor="fuse: true; fuseTimeout: 500" position="0 0 -1" geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03" material="color: black; shader: flat">
-      </a-entity>
-    </a-camera>
+    <a-camera position="0 0 0" look-controls="enabled: true"></a-camera>
 
     <!-- シーン内にモデルを直接配置 -->
-    <a-entity gltf-model="#model" position="0 0 -2" scale="0.5 0.5 0.5" rotation="0 0 0" animation-mixer="clip: *"></a-entity>
-    <a-entity gltf-model="#model_mt2" position="0 -1 -2" scale="0.3 0.3 0.3" rotation="0 0 0" animation-mixer="clip: *"></a-entity>
+    <a-entity gltf-model="#model" position="0 0 0" scale="0.5 0.5 0.5" rotation="0 0 0" animation-mixer="clip: *"></a-entity>
+    <a-entity gltf-model="#model_mt2" position="0 -1 0" scale="0.3 0.3 0.3" rotation="0 0 0" animation-mixer="clip: *"></a-entity>
   </a-scene>
 </body>
 </html>
