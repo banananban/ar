@@ -10,7 +10,8 @@
   <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.3.2/aframe/build/aframe-ar.js"></script>
   <!-- aframe-extras読み込み -->
   <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@6.1.1/dist/aframe-extras.min.js"></script>
-        <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <!-- model-viewer読み込み -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   <title>AR Caby Markerless</title>
 </head>
 
@@ -18,9 +19,10 @@
         <model-viewer
           ar
           ar-modes="scene-viewer webxr quick-look"
-          src="./asset/caby.glb"
+          src="./asset/caby_ar.glb"
           camera-controls
-          auto-play
+          auto-play 
+          animation-name='fly'
           shadow-intensity="0.7"
         ></model-viewer>
 </body>
